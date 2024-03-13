@@ -37,7 +37,7 @@ const WeatherComponent = () => {
                         </option>
                     ))}
                 </select>
-            </label>
+            </label>l
             {weatherData && (
                 <div>
                     <h2>Huidige weer in {weatherData.name}</h2>
