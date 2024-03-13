@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 const WeatherComponent = () => {
     const [weatherData, setWeatherData] = useState(null);
     const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
@@ -10,10 +9,10 @@ const WeatherComponent = () => {
         const fetchWeatherData = async () => {
             try {
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-                const data = response.data;
+                const data = await response.json();
                 setWeatherData(data);
             } catch (error) {
-                console.error('Er is een fout, probeer het nog een keer:', error);
+                console.error('Er is een fout opgetreden, probeer het nog een keer:', error);
             }
         };
 
