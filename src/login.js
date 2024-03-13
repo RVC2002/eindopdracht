@@ -7,7 +7,6 @@ const LoginComponent = () => {
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        // Voer hier gegevens in om de gebruiker in te loggen
         login({ username, password });
     };
 
