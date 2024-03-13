@@ -34,7 +34,6 @@ const HolidayComponent = () => {
                 <label>Land:</label>
                 <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)}>
                     <option value="NL">Nederland</option>
-                    {/* Voeg hier andere landen toe */}
                 </select>
             </div>
             <div>
