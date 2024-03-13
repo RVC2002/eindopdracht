@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const WeatherComponent = () => {
     const [weatherData, setWeatherData] = useState(null);
+    const [city, setCity] = useState('Tilburg');
     const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
-    const city = 'Tilburg';
+
+    // Lijst van Nederlandse steden
+    const dutchCities = [ 'Tilburg', 'Amsterdam', 'Rotterdam', 'Utrecht', 'Eindhoven', 'Groningen', 'Almere', 'Breda', 'Nijmegen', 'Apeldoorn', 'Enschede', 'Haarlem', 'Arnhem', 'Amersfoort', 'Zaanstad', 'Haarlemmermeer', 's-Hertogenbosch', 'Zwolle', 'Zoetermeer', 'Leiden', 'Leeuwarden', 'Maastricht', 'Dordrecht', 'Ede', 'Alphen aan den Rijn', 'Westland', 'Alkmaar', 'Emmen', 'Venlo', 'Delft', 'Deventer', 'Sittard-Geleen', 'Helmond', 'Hilversum', 'Oss', 'Amstelveen', 'Hoeksche Waard', 'Heerlen', 'Gouda', 'Purmerend', 'Roosendaal', 'Schiedam', 'Lelystad', 'Leidschendam-Voorburg', 'Almelo', 'Spijkenisse', 'Alphen-Chaam', 'Roermond', 'Noordoostpolder', 'Veldhoven', 'Etten-Leur', 'Uden', 'Veghel', 'Boxtel', 'Rijen', 'Cuijk', 'Dongen', 'Oisterwijk', 'Vught', 'Waalwijk', 'Valkenswaard', 'Best', 'Goirle', 'Heeze', 'Heesch', 'Kerkdriel', 'Made', 'Nuenen', 'Sint-Oedenrode', 'Someren', 'Waalre', 'Zevenbergen', 'Asten', 'Bladel', 'Boekel', 'Boxmeer', 'Deurne', 'Drunen', 'Geldrop', 'Gemert', 'Hilvarenbeek', 'Kaatsheuvel', 'Lith', 'Lithoijen', 'Mill en Sint Hubert', 'Nuland', 'Ravenstein', 'Reusel', 'Rijkevoort', 'Rijkevoort-De Walsert', 'Rosmalen', 'Rucphen', 'Schaijk', 'Sint-Michielsgestel', 'Son en Breugel', 'Steenbergen', 'Werkendam', 'Woudrichem', 'Zundert' ];
 
     useEffect(() => {
         const fetchWeatherData = async () => {
@@ -19,8 +22,22 @@ const WeatherComponent = () => {
         fetchWeatherData();
     }, [city, apiKey]);
 
+    const handleCityChange = (event) => {
+        setCity(event.target.value);
+    };
+
     return (
         <div>
+            <label>
+                Stad:
+                <select value={city} onChange={handleCityChange}>
+                    {dutchCities.map((city) => (
+                        <option key={city} value={city}>
+                            {city}
+                        </option>
+                    ))}
+                </select>
+            </label>
             {weatherData && (
                 <div>
                     <h2>Huidige weer in {weatherData.name}</h2>
