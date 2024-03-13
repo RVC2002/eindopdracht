@@ -9,7 +9,7 @@ const WeatherComponent = () => {
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
-                const response = await fetch.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
                 const data = response.data;
                 setWeatherData(data);
             } catch (error) {

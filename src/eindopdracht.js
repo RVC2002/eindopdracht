@@ -1,10 +1,18 @@
-fetch('URL_van_je_endpoint', {
+fetch('https://api.datavortex.nl/NOVI Educational Backend/users', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
         'X-Api-Key': 'eindopdracht:3A0QHhPmag2XQ02xb2U3'
     },
-    body: JSON.stringify({ /* body_data */ })
+    body: JSON.stringify({
+        naam: 'Bart Smit',
+        leeftijd: 42,
+        email: 'bartsmit@example.com',
+        wachtwoord: 'mijnveiligwachtwoord',
+        voorkeuren: ['voorkeur1', 'voorkeur2'],
+        interesses: ['interesse1', 'interesse2'],
+        tijdzone: 'Europe/Amsterdam'
+    })
 })
     .then(response => response.json())
     .then(data => {

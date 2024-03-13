@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 
-
 const AuthContext = React.createContext();
 
 export function useAuth() {
@@ -10,16 +9,43 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
-    const login = (userData) => {
-        // Implementeer de gegevens voor inloggen en gebruikersgegevens opslaan
+    const login = async (userData) => {
+        try {
+            const response = await fetch('https://api.datavortex.nl/NOVI Educational Backend/users/authenticate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            const data = await response.json();
+            setUser(data.user);
+        } catch (error) {
+            console.error('Er is een fout opgetreden tijdens het inloggen:', error);
+        }
     };
 
     const logout = () => {
-        // Implementeer de gegevens voor uitloggen en gebruikersgegevens verwijderen
+        setUser(null);
     };
 
-    const register = (userData) => {
-        // Implementeer de gegevens voor registreren van een nieuwe gebruiker
+    const register = async (userData) => {
+        try {
+            const response = await fetch('https://api.datavortex.nl/NOVI Educational Backend/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Api-Key': 'eindopdracht:3A0QHhPmag2XQ02xb2U3'
+                },
+                body: JSON.stringify(userData),
+            });
+
+            const data = await response.json();
+            setUser(data.user);
+        } catch (error) {
+            console.error('Er is een fout opgetreden tijdens het registreren:', error);
+        }
     };
 
     return (
