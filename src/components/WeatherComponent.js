@@ -26,7 +26,7 @@ const WeatherComponent = () => {
             }
         };
 
-        fetchWeatherData();
+        fetchWeatherData().catch(error => setError(error.message));
     }, [city, apiKey]);
 
     const handleCityChange = (event) => {
