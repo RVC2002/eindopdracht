@@ -24,7 +24,15 @@ const HolidayComponent = () => {
             }
         };
 
-        fetchHolidays();
+        const loadHolidays = async () => {
+            try {
+                await fetchHolidays();
+            } catch (error) {
+                console.error('Er is een fout opgetreden tijdens het laden van de vakantiegegevens:', error);
+            }
+        };
+
+        loadHolidays();
     }, [selectedCountry, selectedYear, apiKey]);
 
     return (

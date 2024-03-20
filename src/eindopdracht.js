@@ -16,8 +16,10 @@ fetch('https://api.datavortex.nl/NOVI Educational Backend/users', {
 })
     .then(response => response.json())
     .then(data => {
-        // handle response data
+
+        console.log(data);
     })
     .catch(error => {
-        // handle errors
+
+        console.error(error);
     });

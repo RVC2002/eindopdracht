@@ -7,79 +7,9 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+<div id="root"></div>
 
-<div id="weather-widget"></div>
 
-<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-<script src="components/HolidayComponent.js" type="module"></script>
-<script src="App.js" type="module"></script>
-<script src="authenticatie.js" type="module"></script>
-<script src="eindopdracht.js" type="module"></script>
-<script src="gebruikersauthenticatiegegevens.js" type="module"></script>
-<script src="index.js" type="module"></script>
-<script src="login.js" type="module"></script>
-<script>
-    // Voer de fetch-aanroepen uit en render de WeatherComponent nadat de pagina is geladen
-    window.addEventListener('load', function() {
-        fetch('https://api.datavortex.nl/NOVI Educational Backend/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key': 'eindopdracht:3A0QHhPmag2XQ02xb2U3'
-            },
-            body: JSON.stringify({
-                naam: 'Bart Smit',
-                leeftijd: 42,
-                email: 'bartsmit@example.com',
-                wachtwoord: 'mijnveiligwachtwoord',
-                voorkeuren: ['voorkeur1', 'voorkeur2'],
-                interesses: ['interesse1', 'interesse2'],
-                tijdzone: 'Europe/Amsterdam'
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Response ontvangen:', data);
-                // Render de WeatherComponent nadat de fetch is voltooid
-                ReactDOM.render(
-                    React.createElement(WeatherComponent),
-                    document.getElementById("weather-widget")
-                );
-            })
-            .catch(error => {
-                console.error('Er is een fout opgetreden tijdens de fetch:', error);
-            });
 
-        // Voer de tweede fetch-aanroep uit
-        fetch('https://api.datavortex.nl/testapp/users/authenticate', {
-            method: 'POST',
-            headers: {
-                'accept': '*/*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "username": "testuser",
-                "password": "testpassword"
-            })
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Er is een fout opgetreden bij het authenticeren van de gebruiker');
-                }
-                return response.json();
-            })
-            .then(data => {
-                const jwt = data.jwt; // Haal de JWT-token op uit de response data
-                console.log('JWT-token ontvangen:', jwt);
-
-                // Voer hier verdere bewerkingen uit met de JWT-token, bijvoorbeeld door deze op te slaan in localStorage
-                localStorage.setItem('jwt', jwt);
-            })
-            .catch(error => {
-                console.error('Er is een fout opgetreden:', error);
-            });
-    });
-</script>
 </body>
 </html>

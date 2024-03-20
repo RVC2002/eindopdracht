@@ -16,7 +16,9 @@ fetch('https://api.datavortex.nl/testapp/users/authenticate', {
         return response.json();
     })
     .then(data => {
-        console.log('JWT-token ontvangen:', data.jwt);
+        console.log('Ontvangen data:', data);
+        // Voeg hier code toe om de ontvangen data te verwerken, inclusief het JWT-token
+        console.log('JWT-token ontvangen:', data.jwt); // Voorbeeld: toegang tot het JWT-token
     })
     .catch(error => {
         console.error('Er is een fout opgetreden:', error);
