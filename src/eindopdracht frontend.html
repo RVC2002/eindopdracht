@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eindopdracht frontend</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
 
@@ -12,7 +12,6 @@
 
 <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-<script src="components/WeatherComponent.js" type="module"></script>
 <script src="components/HolidayComponent.js" type="module"></script>
 <script src="App.js" type="module"></script>
 <script src="authenticatie.js" type="module"></script>
@@ -71,7 +70,11 @@
                 return response.json();
             })
             .then(data => {
-                console.log('JWT-token ontvangen:', data.jwt);
+                const jwt = data.jwt; // Haal de JWT-token op uit de response data
+                console.log('JWT-token ontvangen:', jwt);
+
+                // Voer hier verdere bewerkingen uit met de JWT-token, bijvoorbeeld door deze op te slaan in localStorage
+                localStorage.setItem('jwt', jwt);
             })
             .catch(error => {
                 console.error('Er is een fout opgetreden:', error);

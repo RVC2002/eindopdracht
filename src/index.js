@@ -1,17 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { createRoot } from 'react-dom'; // Importeer createRoot in plaats van ReactDOM
+import './styles/index.css';
 import App from './App';
 import WeatherComponent from './components/WeatherComponent';
 import { AuthProvider } from './gebruikersauthenticatiegegevens';
 
-ReactDOM.render(
+// Gebruik createRoot in plaats van ReactDOM.render
+createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <AuthProvider>
             <App />
             <WeatherComponent /> {/* Voeg de WeatherComponent toe */}
         </AuthProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );
-
