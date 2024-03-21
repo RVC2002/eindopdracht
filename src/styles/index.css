@@ -1,34 +1,25 @@
-.weather-container {
+.navbar-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    background-color: #87ceeb; /* Sky Blue */
+    background-color: #0df541;
+    color: #b61b1e;
+    padding: 20px 350px;
+
 }
 
-.weather-card {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Licht schaduweffect */
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    display: flex;
+    align-items: center;
 }
 
-.weather-icon {
-    font-size: 4rem;
-    margin-bottom: 20px;
+.navbar-right {
+    margin-left: auto;
 }
 
-.weather-info {
-    text-align: center;
+.menu-icon {
+    margin-right: 10px;
 }
 
-.temperature {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ff6347; /* Tomato Red */
-}
-
-.location {
-    font-size: 1.2rem;
-    color: #555;
-}
