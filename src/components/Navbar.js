@@ -20,6 +20,9 @@ function Navbar() {
                 <li>
                     <Link to="/signup">Registreren</Link>
                 </li>
+                <li>
+                    <Link to="/share">Deel weerbericht</Link> {/* Corrigeer naar "/share" */}
+                </li>
             </ul>
             <div className="navbar-right">
                 {/* Kalender-icoon met link naar HolidayComponent */}

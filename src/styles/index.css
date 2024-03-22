@@ -31,8 +31,7 @@
     max-width: 800px; /* Optioneel: pas dit aan op basis van je lay-outbehoeften */
 }
 .profile-image {
-    max-width: 200px; /* Maximaal toegestane breedte */
-    max-height: 200px; /* Maximaal toegestane hoogte */
-    /* Eventueel andere CSS-stijlen voor de afbeelding */
+    max-width: 200px;
+    max-height: 200px;
 }
 

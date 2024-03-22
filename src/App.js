@@ -6,7 +6,8 @@ import WeatherComponent from './components/WeatherComponent';
 import HolidayComponent from './components/HolidayComponent';
 import LoginComponent from './components/LoginComponent';
 import SevenDayForecast from './components/SevenDayForecast';
-import SignUpComponent from './components/SignUpComponent'; // Importeer de SignUpComponent
+import SignUpComponent from './components/SignUpComponent';
+import ShareWeatherComponent from './components/ShareWeatherComponent';
 import { AuthProvider } from './gebruikersauthenticatiegegevens';
 import Navbar from './components/Navbar';
 
@@ -34,7 +35,9 @@ function App() {
                             <Route path="/holidays" element={<HolidayComponent />} />
                             <Route path="/login" element={<LoginComponent />} />
                             <Route path="/7-day-forecast" element={<SevenDayForecast />} />
-                            <Route path="/signup" element={<SignUpComponent />} /> {/* Voeg deze nieuwe route toe voor SignUpComponent */}
+                            <Route path="/signup" element={<SignUpComponent />} />
+                            <Route path="/share" element={<ShareWeatherComponent weatherData="Vandaag wordt het zonnig!" />} /> {/* Voeg de nieuwe route toe voor ShareWeatherComponent */}
+
                         </Routes>
                     </header>
                 </div>
