@@ -10,6 +10,9 @@ function Navbar() {
                 <li>
                     <Link to="/login">Login</Link>
                 </li>
+                <li>
+                    <Link to="/7-day-forecast">7-daagse Weersvoorspelling</Link>
+                </li>
             </ul>
             <div className="navbar-right">
                 <Link to="/holidays" className="navbar-holidays">
