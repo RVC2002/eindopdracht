@@ -18,11 +18,11 @@ const LoginComponent = () => {
 
     return (
         <div>
-            <h2>Login</h2>
+            <h2>Inloggen</h2>
             <form onSubmit={handleLogin}>
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button type="submit">Login</button>
+                <input type="email" placeholder="E-mailadres" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder="Wachtwoord" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button type="submit">Inloggen</button>
             </form>
         </div>
     );
