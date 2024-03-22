@@ -12,6 +12,7 @@ const SignUpComponent = () => {
         adres: '',
         postcode: '',
         stad: '',
+        profielfoto: null,
     });
 
     const handleInputChange = (e) => {
@@ -19,13 +20,18 @@ const SignUpComponent = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({ ...formData, profielfoto: file });
+    };
+
+    const handleRemovePhoto = () => {
+        setFormData({ ...formData, profielfoto: null });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Voer hier logica uit om registratiegegevens te verwerken, bijvoorbeeld een API-aanroep naar de backend
-
-        // Voeg hier formuliervalidatie toe voordat je de registratiegegevens verwerkt
-        // Controleer of alle vereiste velden zijn ingevuld en of de gegevens geldig zijn
-
+        // Voer hier logica uit om registratiegegevens te verwerken, inclusief de profielfoto
         console.log('Registratiegegevens:', formData);
     };
 
@@ -34,54 +40,54 @@ const SignUpComponent = () => {
             <h2>Registreren</h2>
             <form onSubmit={handleSubmit}>
                 <div>
+                    <label>Profielfoto:</label>
+                    <input type="file" accept="image/*" onChange={handleFileChange} />
+                    {formData.profielfoto && (
+                        <div>
+                            <img
+                                src={URL.createObjectURL(formData.profielfoto)}
+                                alt="Profielfoto"
+                                className="profile-image"
+                                style={{ width: '150px', height: '150px' }} // Stel de breedte en hoogte van de afbeelding in
+                            />
+                            <button type="button" onClick={handleRemovePhoto}>Verwijderen</button>
+                        </div>
+                    )}
+                </div>
+                <div>
                     <label>Gebruikersnaam:</label>
                     <input type="text" name="gebruikersnaam" value={formData.gebruikersnaam} onChange={handleInputChange} />
                 </div>
-                <div>
-                    <label>E-mailadres:</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
-                </div>
-                <div>
-                    <label>Wachtwoord:</label>
-                    <input type="password" name="wachtwoord" value={formData.wachtwoord} onChange={handleInputChange} />
-                </div>
-                {/* Voornaam */}
                 <div>
                     <label>Voornaam:</label>
                     <input type="text" name="voornaam" value={formData.voornaam} onChange={handleInputChange} />
                 </div>
 
-                {/* Achternaam */}
                 <div>
                     <label>Achternaam:</label>
                     <input type="text" name="achternaam" value={formData.achternaam} onChange={handleInputChange} />
                 </div>
 
-                {/* Geboortedatum */}
                 <div>
                     <label>Geboortedatum:</label>
                     <input type="date" name="geboortedatum" value={formData.geboortedatum} onChange={handleInputChange} />
                 </div>
 
-                {/* Telefoonnummer */}
                 <div>
                     <label>Telefoonnummer:</label>
                     <input type="tel" name="telefoonnummer" value={formData.telefoonnummer} onChange={handleInputChange} />
                 </div>
 
-                {/* Adres */}
                 <div>
                     <label>Adres:</label>
                     <input type="text" name="adres" value={formData.adres} onChange={handleInputChange} />
                 </div>
 
-                {/* Postcode */}
                 <div>
                     <label>Postcode:</label>
                     <input type="text" name="postcode" value={formData.postcode} onChange={handleInputChange} />
                 </div>
 
-                {/* Stad */}
                 <div>
                     <label>Stad:</label>
                     <input type="text" name="stad" value={formData.stad} onChange={handleInputChange} />
