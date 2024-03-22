@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faHome } from '@fortawesome/free-solid-svg-icons'; // Importeer faHome
+import { faCalendarAlt, faHome,  } from '@fortawesome/free-solid-svg-icons'; // Importeer faSignInAlt en faShareAlt
 
 function Navbar() {
     return (
@@ -22,6 +22,9 @@ function Navbar() {
                 </li>
                 <li>
                     <Link to="/share">Deel weerbericht</Link> {/* Corrigeer naar "/share" */}
+                </li>
+                <li>
+                    <Link to="/profile">Profiel</Link> {/* Voeg de link naar het gebruikersprofiel toe */}
                 </li>
             </ul>
             <div className="navbar-right">

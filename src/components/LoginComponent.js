@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../gebruikersauthenticatiegegevens'; // Importeer de useAuth hook
+import { useAuth } from './gebruikersauthenticatiegegevens'; // Importeer de useAuth hook
 
 const LoginComponent = () => {
     const { login } = useAuth(); // Haal de login functie op via de useAuth hook

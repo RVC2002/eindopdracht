@@ -25,10 +25,6 @@ const SignUpComponent = () => {
         setFormData({ ...formData, profielfoto: file });
     };
 
-    const handleRemovePhoto = () => {
-        setFormData({ ...formData, profielfoto: null });
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         // Voer hier logica uit om registratiegegevens te verwerken, inclusief de profielfoto
@@ -42,57 +38,59 @@ const SignUpComponent = () => {
                 <div>
                     <label>Profielfoto:</label>
                     <input type="file" accept="image/*" onChange={handleFileChange} />
+                    {/* Toon de profielfoto alleen als deze is geselecteerd */}
                     {formData.profielfoto && (
                         <div>
                             <img
                                 src={URL.createObjectURL(formData.profielfoto)}
                                 alt="Profielfoto"
                                 className="profile-image"
-                                style={{ width: '150px', height: '150px' }} // Stel de breedte en hoogte van de afbeelding in
+                                style={{ width: '150px', height: '150px' }}
                             />
-                            <button type="button" onClick={handleRemovePhoto}>Verwijderen</button>
                         </div>
                     )}
                 </div>
+                {/* Gebruikersnaam */}
                 <div>
                     <label>Gebruikersnaam:</label>
                     <input type="text" name="gebruikersnaam" value={formData.gebruikersnaam} onChange={handleInputChange} />
                 </div>
+                {/* Voornaam */}
                 <div>
                     <label>Voornaam:</label>
                     <input type="text" name="voornaam" value={formData.voornaam} onChange={handleInputChange} />
                 </div>
-
+                {/* Achternaam */}
                 <div>
                     <label>Achternaam:</label>
                     <input type="text" name="achternaam" value={formData.achternaam} onChange={handleInputChange} />
                 </div>
-
+                {/* Geboortedatum */}
                 <div>
                     <label>Geboortedatum:</label>
                     <input type="date" name="geboortedatum" value={formData.geboortedatum} onChange={handleInputChange} />
                 </div>
-
+                {/* Telefoonnummer */}
                 <div>
                     <label>Telefoonnummer:</label>
                     <input type="tel" name="telefoonnummer" value={formData.telefoonnummer} onChange={handleInputChange} />
                 </div>
-
+                {/* Adres */}
                 <div>
                     <label>Adres:</label>
                     <input type="text" name="adres" value={formData.adres} onChange={handleInputChange} />
                 </div>
-
+                {/* Postcode */}
                 <div>
                     <label>Postcode:</label>
                     <input type="text" name="postcode" value={formData.postcode} onChange={handleInputChange} />
                 </div>
-
+                {/* Stad */}
                 <div>
                     <label>Stad:</label>
                     <input type="text" name="stad" value={formData.stad} onChange={handleInputChange} />
                 </div>
-
+                {/* Button voor het verzenden van het formulier */}
                 <button type="submit">Registreren</button>
             </form>
         </div>
