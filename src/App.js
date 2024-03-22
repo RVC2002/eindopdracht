@@ -1,7 +1,8 @@
+// Importeer de benodigde componenten
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faSignInAlt, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import WeatherComponent from './components/WeatherComponent';
 import HolidayComponent from './components/HolidayComponent'; // Importeer HolidayComponent
 import LoginComponent from './components/LoginComponent';
@@ -16,27 +17,22 @@ function App() {
                     <header className="App-header">
                         <Navbar>
                             <div className="Navbar-left">
-                                <Link to="/weather">
-                                    <FontAwesomeIcon icon={faCalendarAlt} /> {/* Kalender icoon */}
-                                </Link>
+                                {/* Link naar WeatherComponent */}
+                                <FontAwesomeIcon icon={faCalendarAlt} />
                             </div>
                             <div className="Navbar-center">
                                 {/* Zoekbalk hier */}
                             </div>
                             <div className="Navbar-right">
-                                <Link to="/login">
-                                    <FontAwesomeIcon icon={faSignInAlt} /> {/* Sign-in knopje */}
-                                </Link>
-                                <Link to="/settings">
-                                    <FontAwesomeIcon icon={faCog} /> {/* Instellingen icoon */}
-                                </Link>
+                                {/* Link naar LoginComponent */}
+                                <FontAwesomeIcon icon={faSignInAlt} />
                             </div>
                         </Navbar>
                         <Routes>
-                            <Route path="/weather" element={<WeatherComponent />} />
-                            <Route path="/holidays" element={<HolidayComponent />} /> {/* Toegevoegde route voor holidays */}
-                            <Route path="/login" element={<LoginComponent />} />
-                            {/* Route voor instellingen */}
+                            {/* Standaardroute leidt naar WeatherComponent */}
+                            <Route path="/" element={<WeatherComponent />} />
+                            <Route path="/holidays" element={<HolidayComponent />} /> {/* Route naar HolidayComponent */}
+                            <Route path="/login" element={<LoginComponent />} /> {/* Route naar LoginComponent */}
                         </Routes>
                     </header>
                 </div>

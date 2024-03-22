@@ -8,9 +8,6 @@ function Navbar() {
         <nav className="navbar-container">
             <ul className="navbar-list">
                 <li>
-                    <Link to="/weather">Weather</Link>
-                </li>
-                <li>
                     <Link to="/login">Login</Link>
                 </li>
             </ul>
