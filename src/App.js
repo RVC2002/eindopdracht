@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faSignInAlt, faUser } from '@fortawesome/free-solid-svg-icons'; // Importeer het gebruikerspictogram
+import { faCalendarAlt, faSignInAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import WeatherComponent from './components/WeatherComponent';
 import HolidayComponent from './components/HolidayComponent';
 import LoginComponent from './components/LoginComponent';
@@ -11,7 +11,7 @@ import ShareWeatherComponent from './components/ShareWeatherComponent';
 import { AuthProvider } from './components/gebruikersauthenticatiegegevens';
 import Navbar from './components/Navbar';
 import ProfielPageComponent from './components/ProfielPageComponent';
-import NotesSidebar from './components/NotesSidebar'; // Importeer de NotesSidebar
+import NotesSidebar from './components/NotesSidebar';
 
 function App() {
     return (
@@ -28,15 +28,20 @@ function App() {
                                 {/* Zoekbalk hier */}
                             </div>
                             <div className="Navbar-right">
-                                <FontAwesomeIcon icon={faUser} /> {/* Voeg het gebruikerspictogram toe */}
-                                <Link to="/profile">Profiel</Link> {/* Voeg de link naar het gebruikersprofiel toe */}
+                                <FontAwesomeIcon icon={faUser} />
+                                <Link to="/profile">Profiel</Link>
                                 <FontAwesomeIcon icon={faSignInAlt} />
                                 <Link to="/login">Login</Link>
                             </div>
                         </Navbar>
-                        <NotesSidebar /> {/* Plaats de NotesSidebar hier buiten de Routes */}
+                    </header>
+                    <div className="content-wrapper">
+                        <div className="notes-weather-container">
+                            <NotesSidebar />
+                            <WeatherComponent />
+                        </div>
                         <Routes>
-                            <Route path="/" element={<WeatherComponent />} />
+                            <Route path="/" element={<HolidayComponent />} />
                             <Route path="/holidays" element={<HolidayComponent />} />
                             <Route path="/login" element={<LoginComponent />} />
                             <Route path="/7-day-forecast" element={<SevenDayForecast />} />
@@ -44,7 +49,7 @@ function App() {
                             <Route path="/share" element={<ShareWeatherComponent weatherData="Vandaag wordt het zonnig!" />} />
                             <Route path="/profile" element={<ProfielPageComponent />} />
                         </Routes>
-                    </header>
+                    </div>
                 </div>
             </Router>
         </AuthProvider>

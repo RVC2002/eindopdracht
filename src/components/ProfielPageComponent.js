@@ -44,7 +44,7 @@ const ProfielPageComponent = () => {
 
     return (
         <div>
-            <h1>Gebruikersprofiel</h1>
+            <h2>Gebruikersprofiel</h2>
             <form onSubmit={handleUpdateProfile}>
                 {/* Formulierelementen om gebruikersgegevens te bewerken */}
                 <div>

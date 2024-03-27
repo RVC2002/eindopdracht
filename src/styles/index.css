@@ -1,37 +1,51 @@
-.navbar-container {
+.App {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0df541;
-    color: #0df541;
-    padding: 20px 40px;
-
+    flex-direction: column; /* Lay-out bovenop elkaar */
+    min-height: 100vh; /* Minimale hoogte van het venster */
 }
 
-.navbar-left,
-.navbar-center,
-.navbar-right {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-right {
-    margin-left: auto;
-}
-
-.menu-icon {
-    margin-right: 10px;
-}
 .App-header {
-    text-align: center; /* Om de inhoud in het midden van de pagina te centreren */
+    text-align: left; /* Tekst links uitlijnen */
+    padding: 18px;
+    background-color: #0df541;
+    color: #fff;
+
 }
 
 .content-wrapper {
-    margin: 0 auto; /* Om de inhoud in het midden van de pagina te plaatsen */
-    max-width: 800px; /* Optioneel: pas dit aan op basis van je lay-outbehoeften */
-}
-.profile-image {
-    max-width: 200px;
-    max-height: 200px;
+    display: flex;
+    justify-content: center; /* Inhoud in het midden van de pagina */
+    align-items: flex-start; /* Bovenkant uitlijnen */
+    flex: 1; /* Neem de resterende ruimte in beslag */
+    padding: 20px;
 }
 
+.notes-weather-container {
+    display: flex;
+    width: 100%;
+}
+
+.notes-weather-container > * {
+    flex: 1; /* Verdeel de beschikbare ruimte tussen de notities en het weer */
+    margin-right: 20px; /* Ruimte tussen notities en weer */
+}
+
+.notes-weather-container > *:last-child {
+    margin-right: 0; /* Geen margeruimte aan de rechterkant voor het laatste element */
+}
+
+.notes-weather-container > *:first-child {
+    max-width: 1000px; /* Maximale breedte voor notities */
+}
+.notes-weather-container textarea {
+    width: 50%; /* Maak het tekstvak volledig breed */
+    min-height: 100px; /* Stel een minimale hoogte in voor het tekstvak */
+}
+.navbar-list {
+    display: flex;
+    flex-direction: row; /* Links naast elkaar weergeven */
+    justify-content: space-between; /* Links gelijkmatig verdelen */
+    list-style: none; /* Verwijder de opsommingstekens */
+    padding: 0; /* Verwijder standaard padding */
+    width: 100%; /* Maak de lijst 100% breed */
+}
