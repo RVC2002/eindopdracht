@@ -20,17 +20,19 @@ const NotesSidebar = () => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', backgroundColor: '#f0f0f0', padding: '20px' }}>
             <div style={{ marginBottom: '20px' }}>
-                <h2>Notities</h2>
+                <h2 style={{ marginRight: '400px', marginLeft: '6px' }}>Notities</h2>
+
+
                 <textarea
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                     placeholder="Voeg hier een nieuwe notitie toe"
-                    style={{ width: '100%', marginBottom: '10px' }}
+                    style={{ width: '100%', marginBottom: '10px', marginLeft: '6px' }}
                 />
-                <button onClick={handleAddNote}>Voeg toe</button>
+                <button onClick={handleAddNote} style={{ marginLeft: '6px', backgroundColor: '#0df541', color: '#fff', border: 'none', padding: '10px 20px', cursor: 'pointer', fontSize: '15px', transition: 'background-color 0.3s' }}>Voeg toe</button>
             </div>
             <div style={{ overflowY: 'auto' }}>
-                <h2>Weergegeven notities</h2>
+                <h2 style={{ marginRight: '100px', marginLeft: '6px' }}>Weergegeven notities</h2>
                 <ul>
                     {notes.map((note, index) => (
                         <li key={index}>

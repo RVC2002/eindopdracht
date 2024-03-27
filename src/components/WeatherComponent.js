@@ -8,6 +8,7 @@ const WeatherComponent = () => {
     const [weatherIcon, setWeatherIcon] = useState(null);
     const [currentDateTime, setCurrentDateTime] = useState(null);
     const [weatherDescription, setWeatherDescription] = useState("");
+    const [imageSize, setImageSize] = useState(500); // Standaard grootte van de weerkaart
 
     const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
@@ -46,6 +47,10 @@ const WeatherComponent = () => {
         setCity(event.target.value);
     };
 
+    const toggleImageSize = () => {
+        setImageSize(size => (size === 500 ? 800 : 500)); // Wissel tussen 500 en 800 grootte
+    };
+
     return (
         <div className="weather-container">
             <div className="weather-widget">
@@ -63,7 +68,11 @@ const WeatherComponent = () => {
                         <header>
                             <h2>Huidige weer in {weatherData.name}</h2>
                         </header>
-                        <img src={`https://openweathermap.org/img/wn/${weatherIcon}.png`} alt="Weather Icon" />
+                        <img
+                            src={`https://openweathermap.org/img/wn/${weatherIcon}.png`}
+                            alt="Weather Icon"
+                            style={{ width: "100px", height: "100px" }} // Standaard grootte van het plaatje
+                        />
                         <p>Weer: {weatherDescription}</p>
                         <p>Temperatuur: {weatherData.main.temp} °C</p>
                         <p>Voelt aan als: {weatherData.main.feels_like} °C</p>
@@ -71,12 +80,17 @@ const WeatherComponent = () => {
                         <p>Maximale temperatuur: {weatherData.main.temp_max} °C</p>
                         <p>Luchtvochtigheid: {weatherData.main.humidity}%</p>
                         <p>Huidige datum en tijd: {currentDateTime}</p>
-                        <iframe
-                            title="Weather Map"
-                            width="500"
-                            height="300"
-                            src={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&zoom=10`}
-                        ></iframe>
+                        <button onClick={toggleImageSize}>
+                            {imageSize === 500 ? 'Vergroot weerkaart' : 'Verklein weerkaart'}
+                        </button>
+                        <div style={{ width: imageSize, height: imageSize * 0.6, overflow: 'hidden' }}>
+                            <iframe
+                                title="Weather Map"
+                                width={imageSize}
+                                height={imageSize * 0.6} // Behoud de aspect ratio
+                                src={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&zoom=10`}
+                            ></iframe>
+                        </div>
                     </div>
                 )}
             </div>

@@ -1,28 +1,33 @@
+body {
+    margin: 0; /* Verwijder standaard marges van het body-element */
+}
+
 .App {
     display: flex;
-    flex-direction: column; /* Lay-out bovenop elkaar */
-    min-height: 100vh; /* Minimale hoogte van het venster */
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .App-header {
-    text-align: left; /* Tekst links uitlijnen */
-    padding: 18px;
+    text-align: left;
+    padding: 40px; /* Verwijder standaard padding */
+    margin: 0; /* Verwijder standaard marges */
     background-color: #0df541;
-    color: #fff;
-
+    color: #0df541;
 }
 
 .content-wrapper {
     display: flex;
-    justify-content: center; /* Inhoud in het midden van de pagina */
+    justify-content: left; /* Inhoud in het midden van de pagina */
     align-items: flex-start; /* Bovenkant uitlijnen */
     flex: 1; /* Neem de resterende ruimte in beslag */
-    padding: 20px;
+    padding: 0;
 }
 
 .notes-weather-container {
     display: flex;
-    width: 100%;
+    width: 70%;
+    margin-left: -20px; /* Verplaats de notities container 20px naar links */
 }
 
 .notes-weather-container > * {
@@ -41,6 +46,7 @@
     width: 50%; /* Maak het tekstvak volledig breed */
     min-height: 100px; /* Stel een minimale hoogte in voor het tekstvak */
 }
+
 .navbar-list {
     display: flex;
     flex-direction: row; /* Links naast elkaar weergeven */
@@ -72,4 +78,3 @@
 .navbar-button:focus {
     outline: none; /* verwijder focus outline */
 }
-
