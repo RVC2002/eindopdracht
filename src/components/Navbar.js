@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faHome,  } from '@fortawesome/free-solid-svg-icons'; // Importeer faSignInAlt en faShareAlt
+import { faCalendarAlt, faHome, faSignInAlt, faUserPlus, faUser, faShareAlt, faSun } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
     return (
@@ -9,30 +9,45 @@ function Navbar() {
             <div className="navbar-items">
                 <ul className="navbar-list">
                     <li>
-                        <Link to="/" className="navbar-home">
+                        <Link to="/" className="navbar-button">
                             <FontAwesomeIcon icon={faHome} />
+                            <span>Home</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/login">Inloggen</Link>
+                        <Link to="/login" className="navbar-button">
+                            <FontAwesomeIcon icon={faSignInAlt} />
+                            <span>Inloggen</span>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/7-day-forecast">7-daagse Weersvoorspelling</Link>
+                        <Link to="/7-day-forecast" className="navbar-button">
+                            <FontAwesomeIcon icon={faSun} />
+                            <span>7-daagse Weersvoorspelling</span>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/signup">Registreren</Link>
+                        <Link to="/signup" className="navbar-button">
+                            <FontAwesomeIcon icon={faUserPlus} />
+                            <span>Registreren</span>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/share">Deel weerbericht</Link>
+                        <Link to="/share" className="navbar-button">
+                            <FontAwesomeIcon icon={faShareAlt} />
+                            <span>Deel weerbericht</span>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/profile">Profiel</Link>
+                        <Link to="/profile" className="navbar-button">
+                            <FontAwesomeIcon icon={faUser} />
+                            <span>Profiel</span>
+                        </Link>
                     </li>
-
-
                     <li>
-                        <Link to="/holidays" className="navbar-holidays">
-                        <FontAwesomeIcon icon={faCalendarAlt} />
+                        <Link to="/holidays" className="navbar-button">
+                            <FontAwesomeIcon icon={faCalendarAlt} />
+                            <span>Vakanties</span>
                         </Link>
                     </li>
                 </ul>

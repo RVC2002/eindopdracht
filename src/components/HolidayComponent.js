@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 const HolidayComponent = () => {
     const [holidays, setHolidays] = useState([]);
-    const apiKey = process.env.REACT_APP_HOLIDAY_API_KEY;
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear().toString());
@@ -14,15 +13,23 @@ const HolidayComponent = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch(`https://holidayapi.com/v1/holidays?key=${apiKey}&country=${selectedCountry}&year=${selectedYear}`);
+            const response = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${selectedYear}/${selectedCountry}`);
             const data = await response.json();
-            setHolidays(data.holidays);
+
+            // Vertaal de Engelse vakantienamen naar het Nederlands
+            const translatedHolidays = data.map(holiday => ({
+                ...holiday,
+                name: translateHolidayName(holiday.name),
+                date: formatDate(holiday.date)
+            }));
+
+            setHolidays(translatedHolidays);
         } catch (error) {
             setError('Er is een fout opgetreden bij het ophalen van de vakantiegegevens.');
         } finally {
             setLoading(false);
         }
-    }, [apiKey, selectedCountry, selectedYear]);
+    }, [selectedCountry, selectedYear]);
 
     useEffect(() => {
         const loadHolidays = (callback) => {
@@ -37,6 +44,43 @@ const HolidayComponent = () => {
 
     }, [fetchHolidays]);
 
+    // Functie om vakantienamen te vertalen van Engels naar Nederlands
+    const translateHolidayName = (englishName) => {
+        // Voer hier vertalingen in voor Engelse vakantienamen naar het Nederlands
+        switch (englishName) {
+            case "New Year's Day":
+                return 'Nieuwjaarsdag';
+            case 'Good Friday':
+                return 'Goede Vrijdag';
+            case 'Easter Sunday':
+                return 'Eerste Paasdag';
+            case 'Easter Monday':
+                return 'Tweede Paasdag';
+            case "King's Day":
+                return 'Koningsdag';
+            case 'Liberation Day':
+                return 'Bevrijdingsdag';
+            case 'Ascension Day':
+                return 'Hemelvaartsdag';
+            case 'Pentecost':
+                return 'Eerste Pinksterdag';
+            case 'Whit Monday':
+                return 'Tweede Pinksterdag';
+            case 'Christmas Day':
+                return 'Eerste Kerstdag';
+            case "St. Stephen's Day":
+                return 'Tweede Kerstdag';
+            default:
+                return englishName; // Als er geen vertaling beschikbaar is, behouden we de Engelse naam
+        }
+    };
+
+    // Functie om de datum te formatteren op de Nederlandse manier
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('nl-NL');
+    };
+
     return (
         <div>
             <h2>Vakanties</h2>
@@ -44,6 +88,7 @@ const HolidayComponent = () => {
                 <label>Land:</label>
                 <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)}>
                     <option value="NL">Nederland</option>
+                    {/* Andere landen kunnen hier worden toegevoegd */}
                 </select>
             </div>
             <div>

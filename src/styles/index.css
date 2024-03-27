@@ -49,3 +49,27 @@
     padding: 0; /* Verwijder standaard padding */
     width: 100%; /* Maak de lijst 100% breed */
 }
+.navbar-button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff; /* achtergrondkleur aanpassen indien nodig */
+    color: #000; /* tekstkleur aanpassen indien nodig */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-button:hover {
+    background-color: #f0f0f0; /* achtergrondkleur bij hover aanpassen indien nodig */
+}
+
+.navbar-button span {
+    margin-left: 8px;
+}
+
+.navbar-button:focus {
+    outline: none; /* verwijder focus outline */
+}
+
