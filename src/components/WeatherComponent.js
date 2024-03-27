@@ -54,7 +54,7 @@ const WeatherComponent = () => {
     return (
         <div className="weather-container">
             <div className="weather-widget">
-                <label htmlFor="city-select">Stad:</label>
+                <label htmlFor="city-select" style={{fontSize: '20px',}}>Stad:</label>
                 <select id="city-select" value={city} onChange={handleCityChange}>
                     {dutchCities.map((city) => (
                         <option key={city} value={city}>
@@ -71,7 +71,7 @@ const WeatherComponent = () => {
                         <img
                             src={`https://openweathermap.org/img/wn/${weatherIcon}.png`}
                             alt="Weather Icon"
-                            style={{ width: "100px", height: "100px" }} // Standaard grootte van het plaatje
+                            style={{ width: "100px", height: "100px" }}
                         />
                         <p>Weer: {weatherDescription}</p>
                         <p>Temperatuur: {weatherData.main.temp} °C</p>
@@ -79,18 +79,20 @@ const WeatherComponent = () => {
                         <p>Minimale temperatuur: {weatherData.main.temp_min} °C</p>
                         <p>Maximale temperatuur: {weatherData.main.temp_max} °C</p>
                         <p>Luchtvochtigheid: {weatherData.main.humidity}%</p>
-                        <p>Huidige datum en tijd: {currentDateTime}</p>
+                        <p className="date-time">Huidige datum en tijd: {currentDateTime}</p>
                         <button onClick={toggleImageSize}>
                             {imageSize === 500 ? 'Vergroot weerkaart' : 'Verklein weerkaart'}
                         </button>
-                        <div style={{ width: imageSize, height: imageSize * 0.6, overflow: 'hidden' }}>
+                        <div style={{ width: imageSize, height: imageSize * 0.6, overflow: 'hidden', position: 'relative' }}>
                             <iframe
                                 title="Weather Map"
                                 width={imageSize}
                                 height={imageSize * 0.6} // Behoud de aspect ratio
                                 src={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&zoom=10`}
+                                style={{ border: 'none', position: 'absolute', top: '-65px' }} // Verwijder de iframe-rand en pas de positie aan om een stuk van de bovenkant af te snijden
                             ></iframe>
                         </div>
+
                     </div>
                 )}
             </div>

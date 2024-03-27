@@ -78,3 +78,9 @@ body {
 .navbar-button:focus {
     outline: none; /* verwijder focus outline */
 }
+
+#city-select {
+    margin-top: 15px;
+    background-color: #0df541;
+    font-size: 16px;
+}

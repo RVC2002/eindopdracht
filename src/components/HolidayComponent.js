@@ -5,7 +5,7 @@ const HolidayComponent = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear().toString());
-    const [selectedCountry, setSelectedCountry] = useState('NL');
+    const selectedCountry = 'NL'; // Standaard land is Nederland
 
     // Define fetchHolidays with useCallback
     const fetchHolidays = useCallback(async () => {
@@ -16,8 +16,11 @@ const HolidayComponent = () => {
             const response = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${selectedYear}/${selectedCountry}`);
             const data = await response.json();
 
+            // Voeg Oudjaarsdag (31 december) toe aan de lijst met vakanties als het land Nederland is
+            const newHolidays = selectedCountry === 'NL' ? [...data, { name: 'Oudjaarsdag', date: `${selectedYear}-12-31` }] : data;
+
             // Vertaal de Engelse vakantienamen naar het Nederlands
-            const translatedHolidays = data.map(holiday => ({
+            const translatedHolidays = newHolidays.map(holiday => ({
                 ...holiday,
                 name: translateHolidayName(holiday.name),
                 date: formatDate(holiday.date)
@@ -29,7 +32,7 @@ const HolidayComponent = () => {
         } finally {
             setLoading(false);
         }
-    }, [selectedCountry, selectedYear]);
+    }, [selectedYear, selectedCountry]);
 
     useEffect(() => {
         const loadHolidays = (callback) => {
@@ -70,6 +73,8 @@ const HolidayComponent = () => {
                 return 'Eerste Kerstdag';
             case "St. Stephen's Day":
                 return 'Tweede Kerstdag';
+            case 'New Year\'s Eve':
+                return 'Oudjaarsdag'; // Vertaling voor Oudjaarsdag
             default:
                 return englishName; // Als er geen vertaling beschikbaar is, behouden we de Engelse naam
         }
@@ -83,14 +88,7 @@ const HolidayComponent = () => {
 
     return (
         <div>
-            <h2>Vakanties</h2>
-            <div>
-                <label>Land:</label>
-                <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)}>
-                    <option value="NL">Nederland</option>
-                    {/* Andere landen kunnen hier worden toegevoegd */}
-                </select>
-            </div>
+            <h2>Vakanties Nederland</h2>
             <div>
                 <label>Jaar:</label>
                 <input type="number" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} />
