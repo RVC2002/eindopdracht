@@ -87,7 +87,7 @@ const WeatherComponent = () => {
                             <iframe
                                 title="Weather Map"
                                 width={imageSize}
-                                height={imageSize * 0.6} // Behoud de aspect ratio
+                                height={imageSize * 0.6 } // Behoud de aspect ratio
                                 src={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&zoom=10`}
                                 style={{ border: 'none', position: 'absolute', top: '-65px' }} // Verwijder de iframe-rand en pas de positie aan om een stuk van de bovenkant af te snijden
                             ></iframe>
