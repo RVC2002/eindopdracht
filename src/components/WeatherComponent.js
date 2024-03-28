@@ -20,7 +20,7 @@ const WeatherComponent = () => {
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=nl`
             );
             if (!response.ok) {
-                throw new Error("Stad niet gevonden, kies een andere stad.");
+                throw new Error("Gegevens niet gevonden, kies een andere optie.");
             }
             const data = await response.json();
             setWeatherData(data);
@@ -54,7 +54,6 @@ const WeatherComponent = () => {
     return (
         <div className="weather-container">
             <div className="weather-widget">
-                <label htmlFor="city-select" style={{fontSize: '20px',}}>Stad:</label>
                 <select id="city-select" value={city} onChange={handleCityChange}>
                     {dutchCities.map((city) => (
                         <option key={city} value={city}>

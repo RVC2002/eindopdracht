@@ -29,6 +29,8 @@ body {
     display: flex;
     width: 70%;
     margin-left: -20px; /* Verplaats de notities container 20px naar links */
+
+
 }
 
 .notes-weather-container > * {
@@ -46,6 +48,7 @@ body {
 .notes-weather-container textarea {
     width: 50%; /* Maak het tekstvak volledig breed */
     min-height: 100px; /* Stel een minimale hoogte in voor het tekstvak */
+
 }
 
 .navbar-list {
@@ -109,3 +112,36 @@ body {
 .profiel-inhoud {
     margin-top: 38px;
 }
+
+.weather-widget button {
+    background-color: #0df541;
+    color: white;
+}
+
+.year-input {
+    background-color: #0df541;
+    font-size: 16px;
+    margin-left: 1px;
+}
+/* Verplaats de groene puntjes iets naar links */
+ul {
+    list-style: none; /* Verwijder standaard opsommingstekens */
+}
+
+/* Voeg een groen bolletje toe voor elk lijstpunt */
+li::before {
+    content: "•";
+    color: #0df541;
+    display: inline-block;
+    width: 1em;
+    margin-left: -2.4em; /* Verplaats de puntjes iets naar links */
+}
+.login-inhoud button[type="submit"] {
+    background-color: #0df541;
+    color: white;
+}
+.note-textarea {
+    overflow-wrap: break-word; /* Zorg ervoor dat lange woorden worden afgebroken en naar de volgende regel gaan */
+}
+
+

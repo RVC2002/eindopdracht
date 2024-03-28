@@ -91,9 +91,9 @@ const HolidayComponent = () => {
             <div className="navigatie-inhoud">
                 <h2>Vakanties Nederland</h2>
                 <div>
-                    <label>Jaar:</label>
-                    <input type="number" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} />
+                    <input type="number" className="year-input" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} />
                 </div>
+
                 {loading && <p>Loading...</p>}
                 {error && <p>{error}</p>}
                 {!loading && !error && (
