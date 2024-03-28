@@ -32,7 +32,8 @@ const SignUpComponent = () => {
     };
 
     return (
-        <div>
+        <div className="registreren-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
+
             <h2>Registreren</h2>
             <form onSubmit={handleSubmit}>
                 <div>

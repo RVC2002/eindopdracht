@@ -50,7 +50,7 @@ const SevenDayForecast = () => {
     };
 
     return (
-        <div>
+        <div className="zevendagen-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
             <h2>7-daagse weersvoorspelling voor {weatherData ? weatherData.city.name : selectedCity}</h2>
             <select value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
                 {dutchCities.map((city) => (

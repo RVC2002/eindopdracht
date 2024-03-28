@@ -17,7 +17,7 @@ const LoginComponent = () => {
     };
 
     return (
-        <div>
+        <div className="login-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
             <h2>Inloggen</h2>
             <form onSubmit={handleLogin}>
                 <input type="email" placeholder="E-mailadres" value={email} onChange={(e) => setEmail(e.target.value)} />

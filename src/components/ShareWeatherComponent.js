@@ -11,13 +11,14 @@ const ShareWeatherComponent = () => {
     };
 
     return (
-        <div>
+        <div className="share-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
+
             <h2>Weerbericht Delen</h2>
             <input
                 type="text"
                 value={weatherData}
                 onChange={(e) => setWeatherData(e.target.value)}
-                placeholder="Voer hier het weerbericht in"
+                placeholder="Voer hier uw gegevens in"
             />
             <div>
                 <button onClick={() => shareWeather('Facebook')}>Deel op Facebook</button>

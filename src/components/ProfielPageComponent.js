@@ -43,7 +43,8 @@ const ProfielPageComponent = () => {
     };
 
     return (
-        <div>
+        <div className="profiel-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
+
             <h2>Gebruikersprofiel</h2>
             <form onSubmit={handleUpdateProfile}>
                 {/* Formulierelementen om gebruikersgegevens te bewerken */}

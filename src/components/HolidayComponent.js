@@ -88,20 +88,22 @@ const HolidayComponent = () => {
 
     return (
         <div>
-            <h2>Vakanties Nederland</h2>
-            <div>
-                <label>Jaar:</label>
-                <input type="number" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} />
+            <div className="navigatie-inhoud">
+                <h2>Vakanties Nederland</h2>
+                <div>
+                    <label>Jaar:</label>
+                    <input type="number" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} />
+                </div>
+                {loading && <p>Loading...</p>}
+                {error && <p>{error}</p>}
+                {!loading && !error && (
+                    <ul>
+                        {holidays.map((holiday, index) => (
+                            <li key={index}>{holiday.name} - {holiday.date}</li>
+                        ))}
+                    </ul>
+                )}
             </div>
-            {loading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
-            {!loading && !error && (
-                <ul>
-                    {holidays.map((holiday, index) => (
-                        <li key={index}>{holiday.name} - {holiday.date}</li>
-                    ))}
-                </ul>
-            )}
         </div>
     );
 };

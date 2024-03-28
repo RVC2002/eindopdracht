@@ -18,11 +18,12 @@ body {
 
 .content-wrapper {
     display: flex;
-    justify-content: left; /* Inhoud in het midden van de pagina */
-    align-items: flex-start; /* Bovenkant uitlijnen */
-    flex: 1; /* Neem de resterende ruimte in beslag */
+    justify-content: left;
+    align-items: flex-start;
+    flex: 1;
     padding: 0;
 }
+
 
 .notes-weather-container {
     display: flex;
@@ -83,4 +84,28 @@ body {
     margin-top: 15px;
     background-color: #0df541;
     font-size: 16px;
+}
+/* styles.css */
+.navigatie-inhoud {
+    margin-top: 60px; /* Pas dit aan naar de gewenste afstand */
+}
+
+.login-inhoud {
+    margin-top: 38px;
+}
+
+.zevendagen-inhoud {
+    margin-top: 38px;
+}
+
+.registreren-inhoud {
+    margin-top: 38px;
+}
+
+.share-inhoud {
+    margin-top: 38px;
+}
+
+.profiel-inhoud {
+    margin-top: 38px;
 }
