@@ -84,7 +84,7 @@ const NotesSidebar = () => {
                             value={note}
                             onChange={(e) => setNote(e.target.value)}
                             placeholder="Voeg hier een nieuwe notitie toe"
-                            style={{ width: "100%", overflowX: "hidden" }}
+                            style={{ width: "100%", overflowX: "hidden", border: "2px solid #0df541", borderRadius: "5px", padding: "5px" }}
                         />
                     </div>
                     <button

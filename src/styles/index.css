@@ -144,4 +144,84 @@ li::before {
     overflow-wrap: break-word; /* Zorg ervoor dat lange woorden worden afgebroken en naar de volgende regel gaan */
 }
 
+.selected-city {
+    margin-top: 5px;
+    background-color: #0df541;
+    font-size: 16px;
+    color: white; /* Tekstkleur wit */
+    border: none; /* Geen rand */
+    padding: 5px 20px; /* Padding voor de knop */
+    cursor: pointer; /* Cursor veranderen naar pointer bij hover */
+    border-radius: 5px; /* Afgeronde hoeken toevoegen */
+    position: relative; /* Zorg ervoor dat positionering relatief is */
+    z-index: 1; /* Zet de z-index om te voorkomen dat het wordt verborgen door de tabel */
+}
+
+.selected-city:hover {
+    background-color: #0abf2d; /* Achtergrondkleur veranderen bij hover */
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Voeg een beetje ruimte toe tussen de knop en de tabel */
+}
+
+
+thead {
+    background-color: #0df541;
+    color: white;
+}
+
+th, td {
+    padding: 3px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th:hover, td:hover {
+    background-color: inherit; /* Overschrijf de achtergrondkleur bij hover */
+}
+.green-button {
+    background-color: #0df541;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 10px;
+}
+.custom-file-input {
+    background-color: #0df541;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.custom-submit-button {
+    background-color: #0df541;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 10px;
+}
+.green-input {
+    background-color: #0df541;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+    /* Voeg hier andere gewenste stijlen toe */
+}
+
+
 

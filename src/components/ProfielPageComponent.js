@@ -43,9 +43,38 @@ const ProfielPageComponent = () => {
     };
 
     return (
-        <div className="profiel-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
-
+        <div className="profiel-inhoud">
             <h2>Gebruikersprofiel</h2>
+            {/* Profielfoto bovenaan geplaatst */}
+            <div>
+                <label>Profielfoto:</label>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="custom-file-input"
+                    style={{
+                        backgroundColor: '#0df541',
+                        color: 'white',
+                        padding: '10px 15px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        fontSize: '12px'
+                    }}
+                />
+                {formData.profielfoto && (
+                    <div>
+                        <img
+                            src={URL.createObjectURL(formData.profielfoto)}
+                            alt="Profielfoto"
+                            className="profile-image"
+                            style={{ width: '150px', height: '150px' }}
+                        />
+                        <button type="button" onClick={handleRemovePhoto}>Verwijderen</button>
+                    </div>
+                )}
+            </div>
             <form onSubmit={handleUpdateProfile}>
                 {/* Formulierelementen om gebruikersgegevens te bewerken */}
                 <div>
@@ -66,7 +95,13 @@ const ProfielPageComponent = () => {
                 </div>
                 <div>
                     <label>Geboortedatum:</label>
-                    <input type="date" name="geboortedatum" value={formData.geboortedatum} onChange={handleInputChange} />
+                    <input
+                        type="date"
+                        name="geboortedatum"
+                        value={formData.geboortedatum}
+                        onChange={handleInputChange}
+                        className="green-input"
+                    />
                 </div>
                 <div>
                     <label>Telefoonnummer:</label>
@@ -85,22 +120,22 @@ const ProfielPageComponent = () => {
                     <input type="text" name="stad" value={formData.stad} onChange={handleInputChange} />
                 </div>
                 {/* Voeg de mogelijkheid toe om de profielfoto te wijzigen of te verwijderen */}
-                <div>
-                    <label>Profielfoto:</label>
-                    <input type="file" accept="image/*" onChange={handleFileChange} />
-                    {formData.profielfoto && (
-                        <div>
-                            <img
-                                src={URL.createObjectURL(formData.profielfoto)}
-                                alt="Profielfoto"
-                                className="profile-image"
-                                style={{ width: '150px', height: '150px' }}
-                            />
-                            <button type="button" onClick={handleRemovePhoto}>Verwijderen</button>
-                        </div>
-                    )}
-                </div>
-                <button type="submit">Profiel bijwerken</button>
+                {/* Rest van het formulier blijft ongewijzigd */}
+                <button
+                    type="submit"
+                    className="custom-submit-button"
+                    style={{
+                        backgroundColor: '#0df541',
+                        color: 'white',
+                        padding: '2px 30px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        fontSize: '16px'
+                    }}
+                >
+                    Profiel Bijwerken
+                </button>
             </form>
         </div>
     );

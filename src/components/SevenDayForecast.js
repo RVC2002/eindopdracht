@@ -52,13 +52,14 @@ const SevenDayForecast = () => {
     return (
         <div className="zevendagen-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
             <h2>7-daagse weersvoorspelling voor {weatherData ? weatherData.city.name : selectedCity}</h2>
-            <select value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
+            <select value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)} className="selected-city">
                 {dutchCities.map((city) => (
                     <option key={city} value={city}>
                         {city}
                     </option>
                 ))}
             </select>
+
             {error && <div>{error}</div>}
             {!error && !weatherData && <div>Loading...</div>}
             {weatherData && (

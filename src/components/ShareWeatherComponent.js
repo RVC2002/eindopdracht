@@ -10,16 +10,35 @@ const ShareWeatherComponent = () => {
         alert(`Weerbericht gedeeld op ${platform}: ${weatherData}`);
     };
 
-    return (
-        <div className="share-inhoud"> {/* Voeg de navigatie-inhoud div hier toe */}
+    // Functie om de hoogte van het tekstvak te vergroten
+    const increaseBoxHeight = () => {
+        const textBox = document.getElementById('my-text-box');
+        if (textBox.scrollTop === textBox.scrollHeight - textBox.offsetHeight) {
+            textBox.style.height = `${textBox.offsetHeight + 20}px`;
+        }
+    };
 
+    return (
+        <div className="share-inhoud">
             <h2>Weerbericht Delen</h2>
-            <input
-                type="text"
-                value={weatherData}
-                onChange={(e) => setWeatherData(e.target.value)}
-                placeholder="Voer hier uw gegevens in"
-            />
+            <div className="input-container">
+                <textarea
+                    id="my-text-box"
+                    value={weatherData}
+                    onChange={(e) => setWeatherData(e.target.value)}
+                    placeholder="Voer hier uw gegevens in"
+                    style={{
+                        width: '100%',
+                        height: '100px',
+                        maxWidth: '417px',
+                        direction: 'ltr',
+                        textAlign: 'start',
+                        resize: 'none',
+                        border: '2px solid #0df541' // Groene rand toegevoegd
+                    }}
+                    onInput={increaseBoxHeight}
+                />
+            </div>
             <div>
                 <button onClick={() => shareWeather('Facebook')}>Deel op Facebook</button>
                 <button onClick={() => shareWeather('Twitter')}>Deel op Twitter</button>

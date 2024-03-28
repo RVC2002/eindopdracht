@@ -38,7 +38,21 @@ const SignUpComponent = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Profielfoto:</label>
-                    <input type="file" accept="image/*" onChange={handleFileChange} />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="custom-file-input"
+                        style={{
+                            backgroundColor: '#0df541',
+                            color: 'white',
+                            padding: '10px 20px',
+                            border: 'none',
+                            cursor: 'pointer',
+                            borderRadius: '5px',
+                            fontSize: '10px'
+                        }}
+                    />
                     {/* Toon de profielfoto alleen als deze is geselecteerd */}
                     {formData.profielfoto && (
                         <div>
@@ -69,7 +83,13 @@ const SignUpComponent = () => {
                 {/* Geboortedatum */}
                 <div>
                     <label>Geboortedatum:</label>
-                    <input type="date" name="geboortedatum" value={formData.geboortedatum} onChange={handleInputChange} />
+                    <input
+                        type="date"
+                        name="geboortedatum"
+                        value={formData.geboortedatum}
+                        onChange={handleInputChange}
+                        className="green-input"
+                    />
                 </div>
                 {/* Telefoonnummer */}
                 <div>
@@ -92,7 +112,21 @@ const SignUpComponent = () => {
                     <input type="text" name="stad" value={formData.stad} onChange={handleInputChange} />
                 </div>
                 {/* Button voor het verzenden van het formulier */}
-                <button type="submit">Registreren</button>
+                <button
+                    type="submit"
+                    className="custom-submit-button"
+                    style={{
+                        backgroundColor: '#0df541',
+                        color: 'white',
+                        padding: '3px 30px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        fontSize: '16px'
+                    }}
+                >
+                    Registreren
+                </button>
             </form>
         </div>
     );
